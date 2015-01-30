@@ -347,6 +347,7 @@ def _select(sql, first, *args):
         cursor = _db_ctx.connection.cursor()
         cursor.execute(sql, args)
         if cursor.description:
+            # names应该是sql执行返回结果的各字段名称？
             names = [x[0] for x in cursor.description]
         # 如果first为True，只取第一条查询结果，否则返回全部查询结果。
         if first:
